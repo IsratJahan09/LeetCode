@@ -1,3 +1,26 @@
+//optimal solution
+class Solution {
+public:
+    double myPow(double x, int n) {
+      long long p = n;
+      double ans = 1;
+      if(n<0) p = -1*(long)n;
+      while(p){
+        if(p%2==1){
+            ans = x * ans;
+            p--;
+        }
+        else{
+            x*=x;
+            p/=2;
+        }
+      }
+      if(n<0)   return 1.0/ans;
+      return ans;
+    }
+};
+
+
 /*........Hard work and consistency is the only way to success........ */
 #include<bits/stdc++.h>
 using namespace std;
