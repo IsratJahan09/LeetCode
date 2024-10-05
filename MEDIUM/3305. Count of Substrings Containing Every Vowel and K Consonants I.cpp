@@ -20,3 +20,22 @@ public:
         return total_count;
     }
 };
+
+//python solution
+
+class Solution:
+    def countOfSubstrings(self, word: str, k: int) -> int:
+        n = len(word)
+        vowel={'a', 'e', 'i', 'o', 'u'}
+        total_count = 0
+        for i in range(n):
+            vowel_set = set()
+            count = 0
+            for j in range(i, n):
+                if word[j] in vowel:
+                    vowel_set.add(word[j])
+                else:
+                    count += 1
+                if count == k and len(vowel_set)==5:
+                    total_count += 1
+        return total_count
